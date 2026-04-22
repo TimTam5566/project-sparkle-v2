@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# VS Code (optional — remove if you want to share workspace settings)
+.vscode/
+
+# Editor backup files
+*.swp
+*.swo
+*~
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Sparkle — Complete Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: #1a1a2e;
+    background: white;
+    font-size: 12px;
+    padding: 24px;
+  }
+
+  /* ---- COVER PAGE ---- */
+  .cover {
+    text-align: center;
+    padding: 60px 20px;
+    border: 3px solid #c0006a;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d0060 100%);
+    color: white;
+    page-break-after: always;
+  }
+
+  .cover h1 {
+    font-size: 36px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: #ff9900;
+  }
+
+  .cover h2 {
+    font-size: 18px;
+    color: #cc00aa;
+    margin-bottom: 30px;
+    font-weight: normal;
+  }
+
+  .cover .detail {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 2;
+  }
+
+  .cover .detail strong {
+    color: white;
+  }
+
+  /* ---- SECTION HEADINGS ---- */
+  .section {
+    margin-bottom: 36px;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #c0006a;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 13px;
+    color: #c0006a;
+    margin: 14px 0 6px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+  }
+
+  /* ---- COMMAND BLOCKS ---- */
+  .cmd {
+    background: #1a1a2e;
+    color: #00ff88;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px 0;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .cmd-label {
+    font-size: 10px;
+    color: #888;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+
+  /* ---- TABLES ---- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 11px;
+  }
+
+  th {
+    background: #2d0060;
+    color: white;
+    padding: 6px 10px;
+    text-align: left;
+  }
+
+  td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  /* ---- CHEAT SHEET ---- */
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .cheat-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    background: #fafafa;
+  }
+
+  .cheat-card h4 {
+    font-size: 11px;
+    color: #c0006a;
+    margin-bottom: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- TROUBLESHOOTING ---- */
+  .trouble-item {
+    border-left: 4px solid #c0006a;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    background: #fff8f8;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .trouble-item .problem {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+
+  .trouble-item .cause {
+    color: #666;
+    font-size: 11px;
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+
+  .trouble-item .fix {
+    font-size: 11px;
+    color: #333;
+  }
+
+  /* ---- NOTES ---- */
+  .note {
+    background: #fff8e1;
+    border: 1px solid #ffd54f;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 11px;
+    margin: 8px 0;
+  }
+
+  .warning {
+    background: #fff0f0;
+    border: 1px solid #ffaaaa;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 11px;
+    margin: 8px 0;
+  }
+
+  p { margin-bottom: 6px; line-height: 1.6; }
+
+  @media print {
+    body { padding: 12px; font-size: 11px; }
+    .cover { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <h1>✨ PROJECT SPARKLE ✨</h1>
+  <h2>LED Wearable Dress — V2 Complete Guide</h2>
+  <div class="detail">
+    <strong>Showcase Date:</strong> April 21, 2026<br>
+    <strong>Controller:</strong> Raspberry Pi 4 (skirtpi4)<br>
+    <strong>LED Strip:</strong> 300 LEDs — GPIO18 — Powerbank 1<br>
+    <strong>LED Rings:</strong> 276 LEDs (11 rings) — GPIO13 — Powerbank 2<br>
+    <strong>Matrix:</strong> 8×32 WS2812B — GPIO10<br>
+    <strong>Pi login:</strong> tammyh / IP: 192.168.0.117<br>
+    <strong>Project folder:</strong> ~/project-sparkle/<br><br>
+    Built with She Codes ✨
+  </div>
+</div>
+
+
+<!-- ==================== SECTION 1: CHEAT SHEET ==================== -->
+<div class="section">
+  <div class="section-title">⚡ QUICK CHEAT SHEET — Most Used Commands</div>
+
+  <div class="cheat-grid">
+
+    <div class="cheat-card">
+      <h4>Connect to Pi (from Mac)</h4>
+      <span class="cmd">ssh tammyh@192.168.0.117</span>
+      <span class="cmd">ssh tammyh@skirtpi4.local</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Run the Dress Program</h4>
+      <span class="cmd">sudo python3 ~/project-sparkle/sparkle.py</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Stop the Program</h4>
+      <span class="cmd">Ctrl + C</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Safely Shut Down Pi</h4>
+      <span class="cmd">sudo shutdown now</span>
+      <p style="margin-top:4px;font-size:10px;color:#888;">Always do this before unplugging!</p>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Service — Start / Stop / Restart</h4>
+      <span class="cmd">sudo systemctl start sparkle.service</span>
+      <span class="cmd">sudo systemctl stop sparkle.service</span>
+      <span class="cmd">sudo systemctl restart sparkle.service</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Check Service Status</h4>
+      <span class="cmd">sudo systemctl status sparkle.service</span>
+      <p style="margin-top:4px;font-size:10px;color:#888;">Look for "active (running)" in green</p>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Edit sparkle.py</h4>
+      <span class="cmd">nano ~/project-sparkle/sparkle.py</span>
+      <p style="margin-top:4px;font-size:10px;color:#888;">Save: Ctrl+X → Y → Enter</p>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Find Pi on Network (Mac)</h4>
+      <span class="cmd">arp -a</span>
+      <span class="cmd">ping skirtpi4.local</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>List Files in Project Folder</h4>
+      <span class="cmd">ls ~/project-sparkle/</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Check Service Logs (if errors)</h4>
+      <span class="cmd">sudo journalctl -u sparkle.service -n 50</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ==================== SECTION 2: SUCCESSFUL COMMANDS ==================== -->
+<div class="section">
+  <div class="section-title">✅ All Successful Commands Used This Session</div>
+  <p>These are every command that worked during our setup session, in order.</p>
+
+  <h3>1. Connect to the Pi</h3>
+  <span class="cmd-label">From your Mac terminal:</span>
+  <span class="cmd">ssh tammyh@192.168.0.117</span>
+  <span class="cmd-label">If SSH key error after re-flash:</span>
+  <span class="cmd">ssh-keygen -R 192.168.0.117
+ssh-keygen -R skirtpi4.local</span>
+
+  <h3>2. Create the Project Folder</h3>
+  <span class="cmd">mkdir ~/project-sparkle</span>
+
+  <h3>3. Install Required Libraries (run once after each re-flash)</h3>
+  <span class="cmd">sudo pip3 install --break-system-packages adafruit-blinka rpi_ws281x adafruit-circuitpython-neopixel</span>
+  <span class="cmd">pip3 install pyaudio numpy --break-system-packages</span>
+
+  <h3>4. Create Files on the Pi (cat method)</h3>
+  <span class="cmd-label">Template — replace FILENAME.py and paste your code between the lines:</span>
+  <span class="cmd">cat > ~/project-sparkle/FILENAME.py &lt;&lt; 'EOF'
+# paste your code here
+EOF</span>
+
+  <h3>5. Run Test Scripts</h3>
+  <span class="cmd">sudo python3 ~/project-sparkle/strip_test.py</span>
+  <span class="cmd">sudo python3 ~/project-sparkle/rings_test.py</span>
+  <span class="cmd">sudo python3 ~/project-sparkle/chain_test.py</span>
+  <span class="cmd">python3 ~/project-sparkle/mic_test.py</span>
+
+  <h3>6. Run the Main Dress Program</h3>
+  <span class="cmd">sudo python3 ~/project-sparkle/sparkle.py</span>
+
+  <h3>7. Set Up Auto-Boot Service</h3>
+  <span class="cmd">cat &lt;&lt; 'EOF' | sudo tee /etc/systemd/system/sparkle.service
+[Unit]
+Description=Project Sparkle LED Dress
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/tammyh/project-sparkle
+ExecStart=/usr/bin/python3 /home/tammyh/project-sparkle/sparkle.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF</span>
+  <span class="cmd">sudo systemctl daemon-reload</span>
+  <span class="cmd">sudo systemctl enable sparkle.service</span>
+  <span class="cmd">sudo systemctl start sparkle.service</span>
+
+  <h3>8. Safe Shutdown</h3>
+  <span class="cmd">sudo shutdown now</span>
+  <div class="warning">⚠️ Always shut down properly before unplugging the Pi. Pulling power without shutting down can corrupt the SD card!</div>
+</div>
+
+
+<!-- ==================== SECTION 3: CONFIG SETTINGS ==================== -->
+<div class="section">
+  <div class="section-title">⚙️ sparkle.py Config — What to Change and When</div>
+
+  <table>
+    <tr>
+      <th>Setting</th>
+      <th>Current Value</th>
+      <th>What it does</th>
+      <th>When to change</th>
+    </tr>
+    <tr>
+      <td><code>BRIGHTNESS</code></td>
+      <td>0.3 (30%)</td>
+      <td>How bright the LEDs are</td>
+      <td>Increase to 0.5 for showcase, keep at 0.3 for testing</td>
+    </tr>
+    <tr>
+      <td><code>USE_MIC</code></td>
+      <td>False</td>
+      <td>Turns mic monitoring on/off</td>
+      <td>Change to True when mic is plugged in and tested</td>
+    </tr>
+    <tr>
+      <td><code>USE_DISTANCE</code></td>
+      <td>False</td>
+      <td>Turns distance sensor on/off</td>
+      <td>Change to True when sensor is wired to GPIO23/24</td>
+    </tr>
+    <tr>
+      <td><code>USE_MATRIX</code></td>
+      <td>False</td>
+      <td>Turns 8×32 matrix on/off</td>
+      <td>Change to True when matrix is wired to GPIO10</td>
+    </tr>
+    <tr>
+      <td><code>MIC_THRESHOLD</code></td>
+      <td>3000</td>
+      <td>How loud before clap triggers</td>
+      <td>Lower if not triggering, raise if triggering too easily</td>
+    </tr>
+    <tr>
+      <td><code>band_size</code></td>
+      <td>15</td>
+      <td>Width of each colour stripe in chase</td>
+      <td>Smaller = tighter stripes, Larger = wider bands</td>
+    </tr>
+    <tr>
+      <td><code>CLOSE_CM</code></td>
+      <td>50</td>
+      <td>Distance (cm) that triggers sensor</td>
+      <td>Increase for bigger trigger zone, decrease for closer only</td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- ==================== SECTION 4: FILES REFERENCE ==================== -->
+<div class="section">
+  <div class="section-title">📁 Files in ~/project-sparkle/</div>
+
+  <table>
+    <tr>
+      <th>File</th>
+      <th>What it does</th>
+      <th>How to run</th>
+    </tr>
+    <tr>
+      <td><strong>sparkle.py</strong></td>
+      <td>Main dress program — full code with comments explaining everything</td>
+      <td><code>sudo python3 ~/project-sparkle/sparkle.py</code></td>
+    </tr>
+    <tr>
+      <td><strong>sparkle_clean.py</strong></td>
+      <td>Same program, no comments — compact version for pasting</td>
+      <td><code>sudo python3 ~/project-sparkle/sparkle_clean.py</code></td>
+    </tr>
+    <tr>
+      <td><strong>strip_test.py</strong></td>
+      <td>Tests the 300 LED strip only — colour wipes + waterfall</td>
+      <td><code>sudo python3 ~/project-sparkle/strip_test.py</code></td>
+    </tr>
+    <tr>
+      <td><strong>rings_test.py</strong></td>
+      <td>Tests each ring individually — shows which ring is which</td>
+      <td><code>sudo python3 ~/project-sparkle/rings_test.py</code></td>
+    </tr>
+    <tr>
+      <td><strong>chain_test.py</strong></td>
+      <td>Tests all rings as one strip — confirms full chain works</td>
+      <td><code>sudo python3 ~/project-sparkle/chain_test.py</code></td>
+    </tr>
+    <tr>
+      <td><strong>mic_test.py</strong></td>
+      <td>Tests the USB microphone — shows live volume levels</td>
+      <td><code>python3 ~/project-sparkle/mic_test.py</code></td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- ==================== SECTION 5: TROUBLESHOOTING ==================== -->
+<div class="section">
+  <div class="section-title">🔧 Troubleshooting Guide</div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ Can't SSH — "Connection refused" or "Host is down"</div>
+    <div class="cause">Pi is not on the network, has a different IP, or SSH isn't running</div>
+    <div class="fix">
+      Step 1 — Check Pi has power (red light on)<br>
+      Step 2 — Ping it: <span class="cmd" style="display:inline;padding:2px 6px;">ping skirtpi4.local</span><br>
+      Step 3 — Find new IP: <span class="cmd" style="display:inline;padding:2px 6px;">arp -a</span><br>
+      Step 4 — Try by name: <span class="cmd" style="display:inline;padding:2px 6px;">ssh tammyh@skirtpi4.local</span><br>
+      Step 5 — Unplug Pi, wait 10 seconds, replug and wait 60 seconds
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ SSH Warning — "Remote host identification has changed"</div>
+    <div class="cause">Normal after re-flashing the SD card — new card = new SSH key</div>
+    <div class="fix">
+      <span class="cmd">ssh-keygen -R 192.168.0.117</span>
+      <span class="cmd">ssh-keygen -R skirtpi4.local</span>
+      Then connect again normally. Type <strong>yes</strong> when prompted.
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ LEDs not lighting up at all</div>
+    <div class="cause">Wiring issue or library not installed</div>
+    <div class="fix">
+      Check 1 — Is the powerbank turned on and outputting power?<br>
+      Check 2 — Red wire on Pin 2, White/Yellow on Pin 6, Green on Pin 12 (strip) or Pin 33 (rings)<br>
+      Check 3 — Is there a 330Ω resistor on the green data wire?<br>
+      Check 4 — Install libraries: <span class="cmd" style="display:inline;padding:2px 6px;">sudo pip3 install --break-system-packages adafruit-blinka rpi_ws281x adafruit-circuitpython-neopixel</span>
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ Only the first ring lights up</div>
+    <div class="cause">Chain is broken — data not passing from ring 1 to ring 2</div>
+    <div class="fix">
+      Check 1 — Unplug and firmly replug the JST connector between ring 1 and ring 2<br>
+      Check 2 — Green (data) wire on ring 1's female JST must go to DOUT pad (not DIN)<br>
+      Check 3 — Bypass ring 1: plug ring 2 directly to Pi to confirm ring 2 itself works<br>
+      Check 4 — Run chain_test.py and watch where the waterfall stops — that's the break
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ Pi crashes or freezes mid-session</div>
+    <div class="cause">Power issue — Pi and LEDs sharing a powerbank that can't supply enough current</div>
+    <div class="fix">
+      Fix 1 — Keep Pi on its own dedicated power source (separate from LEDs)<br>
+      Fix 2 — Reduce brightness in sparkle.py (BRIGHTNESS = 0.3 or lower)<br>
+      Fix 3 — Don't run full white on all LEDs — it draws the most power<br>
+      Fix 4 — If Pi won't boot: unplug, wait 10 seconds, replug
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ SD card corrupted — Pi has red light but no green</div>
+    <div class="cause">Power was cut while Pi was writing to the SD card</div>
+    <div class="fix">
+      Re-flash the SD card with Raspberry Pi Imager:<br>
+      — Hostname: <strong>skirtpi4</strong> · Username: <strong>tammyh</strong><br>
+      — WiFi: your 2.4GHz network — tick <strong>Hidden Network</strong> checkbox<br>
+      — Enable SSH with password<br>
+      After re-flash: mkdir project-sparkle, reinstall libraries, paste code again
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ Service not starting on boot</div>
+    <div class="cause">Service file not enabled, or sparkle.py has an error</div>
+    <div class="fix">
+      Check logs: <span class="cmd" style="display:inline;padding:2px 6px;">sudo journalctl -u sparkle.service -n 50</span><br>
+      Re-enable: <span class="cmd" style="display:inline;padding:2px 6px;">sudo systemctl enable sparkle.service</span><br>
+      Test manually first: <span class="cmd" style="display:inline;padding:2px 6px;">sudo python3 ~/project-sparkle/sparkle.py</span>
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ Mic not triggering LEDs</div>
+    <div class="cause">Threshold too high, or mic not detected</div>
+    <div class="fix">
+      Step 1 — Run mic_test.py first to confirm mic is working<br>
+      Step 2 — Lower MIC_THRESHOLD in sparkle.py (try 1500 instead of 3000)<br>
+      Step 3 — Make sure USE_MIC = True in sparkle.py<br>
+      Step 4 — Check mic is plugged into USB before running the program
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ "No such file or directory" when running a script</div>
+    <div class="cause">File wasn't created on the Pi, or wrong path</div>
+    <div class="fix">
+      Check the file exists: <span class="cmd" style="display:inline;padding:2px 6px;">ls ~/project-sparkle/</span><br>
+      If missing, paste it again using the cat method<br>
+      Always use the full path: ~/project-sparkle/sparkle.py
+    </div>
+  </div>
+
+  <div class="trouble-item">
+    <div class="problem">❌ "Permission denied" when writing system files</div>
+    <div class="cause">sudo doesn't apply to the > redirect operator</div>
+    <div class="fix">
+      Use tee instead of redirect:<br>
+      <span class="cmd">cat &lt;&lt; 'EOF' | sudo tee /path/to/file
+your content here
+EOF</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== SECTION 6: HARDWARE REMINDER ==================== -->
+<div class="section">
+  <div class="section-title">🔌 Hardware Quick Reference</div>
+
+  <table>
+    <tr>
+      <th>Component</th>
+      <th>Power</th>
+      <th>Data Pin</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>300 LED Strip</td>
+      <td>Powerbank 1</td>
+      <td>GPIO18 (Pin 12)</td>
+      <td>330Ω resistor on data wire. Red→Pin 2, GND→Pin 6</td>
+    </tr>
+    <tr>
+      <td>11 LED Rings (276 LEDs)</td>
+      <td>Powerbank 2</td>
+      <td>GPIO13 (Pin 33)</td>
+      <td>330Ω resistor on data wire. Daisy-chained DOUT→DIN</td>
+    </tr>
+    <tr>
+      <td>8×32 LED Matrix</td>
+      <td>Powerbank 2</td>
+      <td>GPIO10 (Pin 19)</td>
+      <td>WS2812B type. SPI must be enabled on Pi</td>
+    </tr>
+    <tr>
+      <td>Distance Sensor (HC-SR04)</td>
+      <td>3.3V (Pin 17)</td>
+      <td>TRIG→GPIO23 (Pin 16), ECHO→GPIO24 (Pin 18)</td>
+      <td>Use 3.3V not 5V — 5V will damage it!</td>
+    </tr>
+    <tr>
+      <td>USB Microphone</td>
+      <td>USB port</td>
+      <td>USB (automatic)</td>
+      <td>Plug in before running sparkle.py</td>
+    </tr>
+    <tr>
+      <td>Raspberry Pi 4</td>
+      <td>Powerbank 2 (USB-C)</td>
+      <td>—</td>
+      <td>Always shutdown before unplugging</td>
+    </tr>
+  </table>
+
+  <div class="warning" style="margin-top:12px;">
+    ⚠️ <strong>Common ground rule:</strong> Both powerbanks must share a GND connection with the Pi. Run a wire from powerbank 1 GND to a Pi GND pin, otherwise the strip data signal has no reference.
+  </div>
+</div>
+
+</body>
+</html>

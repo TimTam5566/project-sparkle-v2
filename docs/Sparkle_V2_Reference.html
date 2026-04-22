@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Sparkle V2 — Reference Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 24px;
+    color: #1a1a2e;
+    font-size: 13px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #ff9900;
+    background: linear-gradient(135deg, #1a1a2e, #2d0060);
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: white;
+    background: #c0006a;
+    padding: 7px 12px;
+    border-radius: 6px 6px 0 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .section {
+    background: white;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+
+  .section-body {
+    padding: 14px;
+  }
+
+  /* Command rows */
+  .cmd-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cmd-row:last-child { margin-bottom: 0; }
+
+  .cmd {
+    background: #1a1a2e;
+    color: #00ff88;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cmd-desc {
+    font-size: 11px;
+    color: #444;
+    line-height: 1.5;
+    padding-top: 4px;
+  }
+
+  /* Config table */
+  .config-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+
+  .config-table th {
+    background: #2d0060;
+    color: white;
+    padding: 6px 10px;
+    text-align: left;
+  }
+
+  .config-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+
+  .config-table tr:nth-child(even) td { background: #fafafa; }
+
+  .on  { color: #009900; font-weight: bold; }
+  .off { color: #cc0000; font-weight: bold; }
+
+  /* Code block */
+  pre {
+    background: #1a1a2e;
+    color: #e8e8e8;
+    font-family: monospace;
+    font-size: 10px;
+    padding: 14px;
+    overflow-x: auto;
+    line-height: 1.6;
+    white-space: pre;
+  }
+
+  .kw  { color: #cc99ff; }  /* keywords */
+  .cm  { color: #888; font-style: italic; }  /* comments */
+  .st  { color: #ff9900; }  /* strings / values */
+  .fn  { color: #66d9ef; }  /* function names */
+  .num { color: #ae81ff; }  /* numbers */
+
+  /* Troubleshooting */
+  .trouble-row {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+
+  .trouble-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .trouble-problem {
+    font-weight: bold;
+    color: #c0006a;
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .trouble-fix {
+    font-size: 11px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .trouble-fix code {
+    background: #1a1a2e;
+    color: #00ff88;
+    font-family: monospace;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* Two-column grid */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #ff9900;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  .badge-off {
+    background: #999;
+  }
+
+  @media print {
+    body { padding: 12px; background: white; }
+  }
+</style>
+</head>
+<body>
+
+<h1>✨ Project Sparkle V2 — Reference Guide ✨</h1>
+<p class="subtitle">April 2026 She Codes Showcase — skirtpi4 (192.168.0.117) · user: tammyh</p>
+
+<!-- COMMON COMMANDS -->
+<div class="section">
+  <h2>▶ Common Terminal Commands</h2>
+  <div class="section-body">
+
+    <div class="cmd-row">
+      <span class="cmd">sudo systemctl start sparkle.service</span>
+      <span class="cmd-desc">Start the dress (auto-boot version)</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo systemctl stop sparkle.service</span>
+      <span class="cmd-desc">Stop the dress</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo systemctl restart sparkle.service</span>
+      <span class="cmd-desc">Restart after making changes</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo systemctl status sparkle.service</span>
+      <span class="cmd-desc">Check if running — look for <strong style="color:green">active (running)</strong></span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo journalctl -u sparkle.service -n 30</span>
+      <span class="cmd-desc">See the last 30 lines of error logs</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo python3 ~/project-sparkle/sparkle.py</span>
+      <span class="cmd-desc">Run manually (shows print output) — stop with Ctrl+C</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">nano ~/project-sparkle/sparkle.py</span>
+      <span class="cmd-desc">Edit the code — save with Ctrl+X → Y → Enter</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo killall python3</span>
+      <span class="cmd-desc">Force-stop everything if the terminal gets stuck</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo reboot</span>
+      <span class="cmd-desc">Restart the Pi — dress auto-starts after ~30 seconds</span>
+    </div>
+    <div class="cmd-row">
+      <span class="cmd">sudo shutdown now</span>
+      <span class="cmd-desc">Safely power off — wait for green light to stop before unplugging</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPONENT SETTINGS -->
+<div class="section">
+  <h2>⚙ Current Component Settings</h2>
+  <div class="section-body">
+    <table class="config-table">
+      <tr>
+        <th>Component</th>
+        <th>Setting</th>
+        <th>Pin</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td><strong>LED Strip</strong></td>
+        <td>300 LEDs · 40% brightness</td>
+        <td>Pin 12 (GPIO18)</td>
+        <td><span class="on">ON ✓</span></td>
+        <td>Orange &amp; purple chase animation</td>
+      </tr>
+      <tr>
+        <td><strong>Rings</strong></td>
+        <td>276 LEDs · 11 rings · 40% brightness</td>
+        <td>Pin 33 (GPIO13)</td>
+        <td><span class="on">ON ✓</span></td>
+        <td>Orange &amp; purple chase animation</td>
+      </tr>
+      <tr>
+        <td><strong>Matrix</strong></td>
+        <td>256 LEDs (8×32) · 40% brightness</td>
+        <td>Pin 19 (GPIO10 SPI)</td>
+        <td><span class="on">ON ✓</span></td>
+        <td>Orange &gt;_ logo scrolls left→right on purple background</td>
+      </tr>
+      <tr>
+        <td><strong>Distance Sensor</strong></td>
+        <td>Triggers within 50cm</td>
+        <td>Trig: Pin 16 · Echo: Pin 18 · GND: Pin 20</td>
+        <td><span class="off">OFF</span></td>
+        <td>Set <code>USE_DISTANCE = True</code> to enable — position sensor away from fabric first</td>
+      </tr>
+      <tr>
+        <td><strong>Microphone</strong></td>
+        <td>Clap/cheer threshold: 3000</td>
+        <td>USB</td>
+        <td><span class="off">OFF</span></td>
+        <td>Set <code>USE_MIC = True</code> after installing pyaudio</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ENABLE/DISABLE + BRIGHTNESS -->
+<div class="grid-2">
+
+  <div class="section">
+    <h2>💡 Change Brightness</h2>
+    <div class="section-body">
+      <p style="font-size:11px;margin-bottom:8px;">Stop service → edit → find <strong>BRIGHTNESS</strong> → restart:</p>
+      <table class="config-table">
+        <tr><th>Value</th><th>Brightness</th><th>Use for</th></tr>
+        <tr><td>0.3</td><td>30%</td><td>Testing indoors</td></tr>
+        <tr><td>0.4</td><td>40%</td><td>Normal showcase ← current</td></tr>
+        <tr><td>0.5</td><td>50%</td><td>Photography</td></tr>
+        <tr><td>0.7</td><td>70%</td><td>Very bright room</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔧 Enable Sensors</h2>
+    <div class="section-body">
+      <p style="font-size:11px;margin-bottom:8px;">Stop service → edit sparkle.py → find these lines near the top → change False to True → restart:</p>
+      <div class="cmd-row"><span class="cmd">USE_DISTANCE = False → True</span></div>
+      <p style="font-size:10px;color:#888;margin:4px 0 10px 0;">Make sure sensor is pointing away from fabric before enabling</p>
+      <div class="cmd-row"><span class="cmd">USE_MIC = False → True</span></div>
+      <p style="font-size:10px;color:#888;margin:4px 0 0 0;">Install pyaudio first: <code style="background:#1a1a2e;color:#00ff88;padding:2px 5px;border-radius:3px;font-size:10px;">pip3 install pyaudio numpy --break-system-packages</code></p>
+    </div>
+  </div>
+
+</div>
+
+<!-- REACTIONS -->
+<div class="section">
+  <h2>⚡ Reactions When Triggered</h2>
+  <div class="section-body">
+    <div class="cmd-row" style="margin-bottom:12px;">
+      <div>
+        <div style="font-weight:bold;font-size:12px;color:#c0006a;margin-bottom:4px;">👏 Clap / Cheer (Mic trigger)</div>
+        <div style="font-size:11px;color:#444;">Strip flashes one random bold colour (hot pink, electric blue, or bright green) · Rings flash bright white at 20% brightness · Repeats 3 times · Then returns to normal chase</div>
+      </div>
+    </div>
+    <div class="cmd-row">
+      <div>
+        <div style="font-weight:bold;font-size:12px;color:#c0006a;margin-bottom:4px;">🚶 Person Nearby (Distance sensor trigger, within 50cm)</div>
+        <div style="font-size:11px;color:#444;">Strip and rings cycle rapidly through purple → orange → white · Repeats 4 times · Then returns to normal chase</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TROUBLESHOOTING -->
+<div class="section">
+  <h2>🔧 Troubleshooting</h2>
+  <div class="section-body">
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Service won't start / crashes immediately</div>
+      <div class="trouble-fix">Check logs: <code>sudo journalctl -u sparkle.service -n 30</code> — look for the Python error message on the line starting with the Pi name.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Terminal is stuck / Ctrl+C not working</div>
+      <div class="trouble-fix">Open a new Termius tab, connect again, then run: <code>sudo killall python3</code> followed by <code>sudo systemctl stop sparkle.service</code></div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Distance sensor constantly firing (PERSON DETECTED spam)</div>
+      <div class="trouble-fix">Something is within 50cm of the sensor — check for wires or fabric touching it. Temporarily disable with <code>USE_DISTANCE = False</code> until the sensor is repositioned.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Pi not connecting via SSH</div>
+      <div class="trouble-fix">Make sure phone hotspot is OFF — the Pi and your Mac must be on the same WiFi (home NBN). Try hostname <code>skirtpi4.local</code> if IP address fails. Give it 60 seconds after power-on.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">SSH key warning after re-flashing SD card</div>
+      <div class="trouble-fix">Normal — new SD = new key. Run: <code>ssh-keygen -R 192.168.0.117</code> then reconnect and type <code>yes</code>.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">LEDs not lighting up after power cycle</div>
+      <div class="trouble-fix">Check all data wire connections (they can work loose). Strip → Pin 12, Rings → Pin 33, Matrix → Pin 19. VCC wires go to powerbanks, not the Pi.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Matrix showing wrong colours or not scrolling</div>
+      <div class="trouble-fix">Check Pin 19 (DATA) and Pin 25 (GND) connections on the matrix — a loose GND causes random colour issues. Also confirm SPI is enabled: <code>sudo raspi-config</code> → Interface Options → SPI → Yes.</div>
+    </div>
+
+    <div class="trouble-row">
+      <div class="trouble-problem">Only rings working, strip or matrix not responding</div>
+      <div class="trouble-fix">Power issue — check the powerbank connections for strip and matrix. A loose VCC wire on any component will stop just that component. Push all JST connectors firmly in.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FULL CODE -->
+<div class="section">
+  <h2>📄 Full Current Code — sparkle.py</h2>
+  <pre><span class="cm"># =====================================================
+# sparkle.py — Project Sparkle V2
+# Full dress program — April 2026 Showcase
+# HOW TO RUN: sudo python3 ~/project-sparkle/sparkle.py
+# =====================================================</span>
+
+<span class="kw">import</span> time, board, neopixel, RPi.GPIO <span class="kw">as</span> GPIO, threading, random
+
+<span class="cm"># ---- CONFIG ----</span>
+STRIP_LEDS      = <span class="num">300</span>
+STRIP_PIN       = board.D18
+RINGS           = [<span class="num">60, 24, 48, 12, 40, 12, 32, 12, 12, 12, 12</span>]
+RINGS_LEDS      = sum(RINGS)
+RINGS_PIN       = board.D13
+USE_MATRIX      = <span class="st">True</span>
+MATRIX_LEDS     = <span class="num">256</span>
+MATRIX_PIN      = board.D10
+USE_DISTANCE    = <span class="st">False</span>             <span class="cm"># Set True to enable distance sensor</span>
+TRIG_PIN        = <span class="num">23</span>
+ECHO_PIN        = <span class="num">24</span>
+CLOSE_CM        = <span class="num">50</span>
+USE_MIC         = <span class="st">False</span>             <span class="cm"># Set True when mic is plugged in</span>
+MIC_THRESHOLD   = <span class="num">3000</span>
+BRIGHTNESS      = <span class="num">0.4</span>
+
+ORANGE          = (<span class="num">255, 80, 0</span>)
+PURPLE          = (<span class="num">100, 0, 180</span>)
+WHITE           = (<span class="num">255, 255, 255</span>)
+BLACK           = (<span class="num">0, 0, 0</span>)
+REACTION_COLOURS = [(<span class="num">255, 20, 147</span>), (<span class="num">0, 150, 255</span>), (<span class="num">0, 220, 80</span>)]
+
+MATRIX_ROWS = <span class="num">8</span>
+MATRIX_COLS = <span class="num">32</span>
+
+TEXT_BITMAP = [
+    [<span class="num">1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+    [<span class="num">1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1</span>],
+    [<span class="num">0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</span>],
+]
+TEXT_WIDTH = <span class="num">11</span>
+
+clap_detected   = <span class="st">False</span>
+person_detected = <span class="st">False</span>
+
+<span class="cm"># ---- LED SETUP ----</span>
+strip  = neopixel.NeoPixel(STRIP_PIN,  STRIP_LEDS,  brightness=BRIGHTNESS, auto_write=<span class="st">False</span>)
+rings  = neopixel.NeoPixel(RINGS_PIN,  RINGS_LEDS,  brightness=BRIGHTNESS, auto_write=<span class="st">False</span>)
+<span class="kw">try</span>:
+    matrix = neopixel.NeoPixel(MATRIX_PIN, MATRIX_LEDS, brightness=BRIGHTNESS, auto_write=<span class="st">False</span>) <span class="kw">if</span> USE_MATRIX <span class="kw">else None</span>
+<span class="kw">except</span> Exception <span class="kw">as</span> e:
+    <span class="fn">print</span>(f<span class="st">"Matrix setup failed: {e}"</span>); matrix = <span class="st">None</span>
+
+<span class="kw">def</span> <span class="fn">show_leds</span>():    strip.show(); rings.show()
+<span class="kw">def</span> <span class="fn">fill_all</span>(c):   strip.fill(c); rings.fill(c); show_leds()
+<span class="kw">def</span> <span class="fn">clear_all</span>():   fill_all(BLACK)
+
+<span class="cm"># ---- MATRIX PIXEL MAPPING ----
+# Data enters bottom-right corner, snakes left column by column.
+# led_col 0 = rightmost physical column (goes bottom-to-top)
+# led_col 1 = second from right (goes top-to-bottom), etc.</span>
+<span class="kw">def</span> <span class="fn">matrix_pixel_index</span>(row, col):
+    <span class="kw">if</span> <span class="num">0</span> &lt;= row &lt; MATRIX_ROWS <span class="kw">and</span> <span class="num">0</span> &lt;= col &lt; MATRIX_COLS:
+        led_col = MATRIX_COLS - <span class="num">1</span> - col
+        <span class="kw">if</span> led_col % <span class="num">2</span> == <span class="num">0</span>:
+            <span class="kw">return</span> led_col * MATRIX_ROWS + (MATRIX_ROWS - <span class="num">1</span> - row)
+        <span class="kw">else</span>:
+            <span class="kw">return</span> led_col * MATRIX_ROWS + row
+    <span class="kw">return None</span>
+
+<span class="kw">def</span> <span class="fn">draw_matrix_frame</span>(scroll_offset, colour=ORANGE):
+    <span class="kw">if not</span> matrix: <span class="kw">return</span>
+    <span class="kw">try</span>:
+        matrix.fill(PURPLE)
+        <span class="kw">for</span> row <span class="kw">in</span> <span class="fn">range</span>(MATRIX_ROWS):
+            <span class="kw">for</span> col <span class="kw">in</span> <span class="fn">range</span>(MATRIX_COLS):
+                text_col = col - scroll_offset
+                <span class="kw">if</span> <span class="num">0</span> &lt;= text_col &lt; TEXT_WIDTH:
+                    <span class="kw">if</span> TEXT_BITMAP[row][text_col]:
+                        idx = matrix_pixel_index(row, col)
+                        <span class="kw">if</span> idx <span class="kw">is not None and</span> idx &lt; MATRIX_LEDS:
+                            matrix[idx] = colour
+        matrix.show()
+    <span class="kw">except</span> Exception <span class="kw">as</span> e:
+        <span class="fn">print</span>(f<span class="st">"Matrix error: {e}"</span>)
+
+<span class="cm"># ---- DISTANCE SENSOR ----</span>
+<span class="kw">if</span> USE_DISTANCE:
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(TRIG_PIN, GPIO.OUT)
+    GPIO.setup(ECHO_PIN, GPIO.IN)
+
+<span class="kw">def</span> <span class="fn">get_distance_cm</span>():
+    GPIO.output(TRIG_PIN, <span class="st">True</span>); time.sleep(<span class="num">0.00001</span>); GPIO.output(TRIG_PIN, <span class="st">False</span>)
+    timeout = time.time() + <span class="num">0.1</span>; start = time.time()
+    <span class="kw">while</span> GPIO.input(ECHO_PIN) == <span class="num">0</span>:
+        start = time.time()
+        <span class="kw">if</span> time.time() &gt; timeout: <span class="kw">return</span> <span class="num">999</span>
+    stop = time.time()
+    <span class="kw">while</span> GPIO.input(ECHO_PIN) == <span class="num">1</span>:
+        stop = time.time()
+        <span class="kw">if</span> time.time() &gt; timeout: <span class="kw">return</span> <span class="num">999</span>
+    <span class="kw">return</span> (stop - start) * <span class="num">34300</span> / <span class="num">2</span>
+
+<span class="kw">def</span> <span class="fn">monitor_distance</span>():
+    <span class="kw">global</span> person_detected
+    <span class="kw">while True</span>:
+        <span class="kw">try</span>:
+            <span class="kw">if</span> get_distance_cm() &lt; CLOSE_CM: person_detected = <span class="st">True</span>
+        <span class="kw">except</span>: <span class="kw">pass</span>
+        time.sleep(<span class="num">0.1</span>)
+
+<span class="cm"># ---- MICROPHONE ----</span>
+<span class="kw">def</span> <span class="fn">monitor_mic</span>():
+    <span class="kw">global</span> clap_detected
+    <span class="kw">try</span>: <span class="kw">import</span> pyaudio; <span class="kw">import</span> numpy <span class="kw">as</span> np
+    <span class="kw">except</span>: <span class="fn">print</span>(<span class="st">"pyaudio not installed"</span>); <span class="kw">return</span>
+    p = pyaudio.PyAudio(); mic_index = <span class="st">None</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(p.get_device_count()):
+        info = p.get_device_info_by_index(i)
+        <span class="kw">if</span> info[<span class="st">'maxInputChannels'</span>] &gt; <span class="num">0</span>:
+            <span class="kw">if</span> <span class="st">'usb'</span> <span class="kw">in</span> info[<span class="st">'name'</span>].lower() <span class="kw">or</span> <span class="st">'mic'</span> <span class="kw">in</span> info[<span class="st">'name'</span>].lower(): mic_index = i; <span class="kw">break</span>
+            <span class="kw">elif</span> mic_index <span class="kw">is None</span>: mic_index = i
+    <span class="kw">if</span> mic_index <span class="kw">is None</span>: <span class="fn">print</span>(<span class="st">"No mic found"</span>); p.terminate(); <span class="kw">return</span>
+    stream = p.open(format=pyaudio.paInt16, channels=<span class="num">1</span>, rate=<span class="num">44100</span>,
+                    input=<span class="st">True</span>, input_device_index=mic_index, frames_per_buffer=<span class="num">1024</span>)
+    <span class="kw">while True</span>:
+        audio = np.frombuffer(stream.read(<span class="num">1024</span>, exception_on_overflow=<span class="st">False</span>), dtype=np.int16)
+        <span class="kw">if</span> <span class="fn">int</span>(np.abs(audio).mean()) &gt; MIC_THRESHOLD: clap_detected = <span class="st">True</span>
+        time.sleep(<span class="num">0.02</span>)
+
+<span class="cm"># ---- ANIMATIONS ----</span>
+<span class="kw">def</span> <span class="fn">chase_frame</span>(pixels, num_leds, offset):
+    band_size = <span class="num">15</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(num_leds):
+        pixels[i] = ORANGE <span class="kw">if</span> (i + offset) % (band_size * <span class="num">2</span>) &lt; band_size <span class="kw">else</span> PURPLE
+
+<span class="kw">def</span> <span class="fn">colour_flash_reaction</span>():
+    colour = random.choice(REACTION_COLOURS)
+    rings.brightness = <span class="num">0.2</span>
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>):
+        strip.fill(colour); rings.fill(WHITE); show_leds(); time.sleep(<span class="num">0.2</span>)
+        strip.fill(BLACK);  rings.fill(BLACK);  show_leds(); time.sleep(<span class="num">0.15</span>)
+    rings.brightness = BRIGHTNESS
+
+<span class="kw">def</span> <span class="fn">distance_flash_reaction</span>():
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">4</span>):
+        <span class="kw">for</span> c <span class="kw">in</span> [PURPLE, ORANGE, WHITE]:
+            strip.fill(c); rings.fill(c); show_leds(); time.sleep(<span class="num">0.12</span>)
+    strip.fill(BLACK); rings.fill(BLACK); show_leds(); time.sleep(<span class="num">0.2</span>)
+
+<span class="cm"># ---- MAIN ----</span>
+<span class="kw">def</span> <span class="fn">main</span>():
+    <span class="kw">global</span> clap_detected, person_detected
+    <span class="fn">print</span>(<span class="st">"=" * 40 + "\n  PROJECT SPARKLE V2 — STARTING UP"</span>)
+    <span class="fn">print</span>(f<span class="st">"  Strip: {STRIP_LEDS} · Rings: {RINGS_LEDS} · Matrix: {'ON' if matrix else 'OFF'} · Brightness: {int(BRIGHTNESS*100)}%"</span>)
+    <span class="fn">print</span>(<span class="st">"=" * 40</span>)
+    <span class="kw">if</span> USE_MIC:      threading.Thread(target=monitor_mic,      daemon=<span class="st">True</span>).start(); <span class="fn">print</span>(<span class="st">"Mic on"</span>)
+    <span class="kw">if</span> USE_DISTANCE: threading.Thread(target=monitor_distance, daemon=<span class="st">True</span>).start(); <span class="fn">print</span>(<span class="st">"Distance on"</span>)
+    <span class="fn">print</span>(<span class="st">"Running! Ctrl+C to stop."</span>)
+
+    offset, frame, matrix_offset, matrix_colour = <span class="num">0, 0, -TEXT_WIDTH</span>, ORANGE
+
+    <span class="kw">try</span>:
+        <span class="kw">while True</span>:
+            <span class="kw">if</span> clap_detected:
+                clap_detected = <span class="st">False</span>; <span class="fn">print</span>(<span class="st">"CLAP!"</span>); colour_flash_reaction(); offset = <span class="num">0</span>; <span class="kw">continue</span>
+            <span class="kw">if</span> person_detected:
+                person_detected = <span class="st">False</span>; <span class="fn">print</span>(<span class="st">"PERSON!"</span>); distance_flash_reaction(); offset = <span class="num">0</span>; <span class="kw">continue</span>
+            chase_frame(strip, STRIP_LEDS, offset)
+            chase_frame(rings, RINGS_LEDS, offset)
+            show_leds()
+            <span class="kw">if</span> matrix <span class="kw">and</span> frame % <span class="num">5</span> == <span class="num">0</span>:
+                draw_matrix_frame(matrix_offset, colour=matrix_colour)
+                matrix_offset += <span class="num">1</span>
+                <span class="kw">if</span> matrix_offset &gt; MATRIX_COLS: matrix_offset = -TEXT_WIDTH
+            offset += <span class="num">1</span>; frame += <span class="num">1</span>; time.sleep(<span class="num">0.04</span>)
+
+    <span class="kw">except</span> KeyboardInterrupt:
+        <span class="fn">print</span>(<span class="st">"\nShutting down..."</span>); clear_all()
+        <span class="kw">if</span> matrix:
+            <span class="kw">try</span>: matrix.fill(BLACK); matrix.show()
+            <span class="kw">except</span>: <span class="kw">pass</span>
+        <span class="kw">if</span> USE_DISTANCE: GPIO.cleanup()
+        <span class="fn">print</span>(<span class="st">"All LEDs off. Goodbye! ✨"</span>)
+
+<span class="kw">if</span> __name__ == <span class="st">"__main__"</span>: <span class="fn">main</span>()</pre>
+</div>
+</div>
+
+</body>
+</html>
