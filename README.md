@@ -10,7 +10,7 @@ We ordered components, planned what we were going to do, and then Kate left the 
 
 Version 2 evolves the original one-strip prototype (https://github.com/j4ckofalltrades/project-sparkle) created with the assistance of Jordan Duabe our 2025 She Codes Plus cohort Python Mentor and Guru. 
 
-Version 2 has evolved into a multi-zone, interactive light garment that responds to people and sound in real time. Built and coded by Tammy Healy with help from Emma Spear and Alice Maiorana. Learning new skills as we go. Troubleshooting attachment of components, wiring, soldering, component failure, component success and then component failure again.
+Version 2 has evolved into a multi-zone, interactive light garment that responds to people and sound in real time. Built and coded by Tammy Healy with help from Emma Spear and Alice Maiorana during the build, and Lucy Nguyen and Reece Jocumsen during Brisbane showcase setup. Learning new skills as we go. Troubleshooting attachment of components, wiring, soldering, component failure, component success and then component failure again.
 
 ![Status](https://img.shields.io/badge/status-showcased--April--2026-E67E22)
 ![Pi](https://img.shields.io/badge/hardware-Raspberry%20Pi%204-6A4C93)
@@ -70,7 +70,6 @@ V2 is the event-ready version:
 | File | Purpose |
 | --- | --- |
 | `code/sparkle.py` | **Main program** — boots as a systemd service, drives all three LED zones and both sensors |
-| `code/sparkle_clean.py` | Earlier/cleaner version of the main loop, kept for reference |
 | `code/strip_test.py` | Isolated test for the 300-LED strip |
 | `code/rings_test.py` | Isolated test for the LED ring chain |
 | `code/mic_test.py` | Isolated test for the microphone input threshold |

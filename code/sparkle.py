@@ -36,7 +36,7 @@ CLOSE_CM        = 50
 USE_MIC         = False              # Set True when mic is plugged in
 MIC_THRESHOLD   = 3000
 
-BRIGHTNESS      = 0.3               # 40% for showcase
+BRIGHTNESS      = 0.3               # 30% — dialed back from 40% to extend battery life for the 4+ hour showcase
 
 # Dress colours
 ORANGE          = (255, 80, 0)
