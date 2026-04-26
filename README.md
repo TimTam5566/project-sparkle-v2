@@ -1,6 +1,6 @@
 # Project Sparkle — V2
 
-Where it all started
+# Where it all started
 
 In 2025 I was lucky enough to be accepted into the 2025 She Codes Australia - She Codes Plus Program. During our Python sprint Jordan Duabe (our lead mentor) and Kate Kirwin brought in different projects that could be created using Python and LED rings and Microbits. During one of these sessions Kate mentioned a dress that she would like to create using addressable LEDs. I took one look and knew that I would have to make that happen.
 
