@@ -18,7 +18,7 @@ import random
 # ============================================================
 
 STRIP_LEDS      = 300
-STRIP_PIN       = board.D12
+STRIP_PIN       = board.D12  # moved from D18 — original Pi's PWM0 pin damaged - use D18 if you have a fully functional Pi
 
 RINGS           = [60, 24, 48, 12, 40, 12, 32, 12, 12, 12, 12]
 RINGS_LEDS      = sum(RINGS)         # = 276
