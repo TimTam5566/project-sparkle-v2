@@ -18,7 +18,7 @@ import random
 # ============================================================
 
 STRIP_LEDS      = 300
-STRIP_PIN       = board.D18
+STRIP_PIN       = board.D12
 
 RINGS           = [60, 24, 48, 12, 40, 12, 32, 12, 12, 12, 12]
 RINGS_LEDS      = sum(RINGS)         # = 276
@@ -34,7 +34,7 @@ ECHO_PIN        = 24
 CLOSE_CM        = 50
 
 USE_MIC         = False              # Set True when mic is plugged in
-MIC_THRESHOLD   = 3000
+MIC_THRESHOLD   = 2000
 
 BRIGHTNESS      = 0.3               # 30% — dialed back from 40% to extend battery life for the 4+ hour showcase
 
